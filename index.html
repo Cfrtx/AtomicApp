@@ -21,9 +21,8 @@
             overflow-y: auto;
         }
 
-        /* Main Container */
         .main-container {
-            background-color: rgba(26, 26, 26, 0.95);
+            background-color: rgba(38, 38, 38, 0.95);
             border-radius: 20px;
             padding: 40px;
             width: 90%;
@@ -44,7 +43,7 @@
         .logo {
             width: 120px;
             height: 120px;
-            background-image: url('https://media.discordapp.net/attachments/1350704655046283365/1350719684349136960/Atomic.png?ex=67dbb7bb&is=67da663b&hm=e3af0b448bfad52d68b089d0445923d3a8213622a8a1454f9e00cc4d04480318&=&format=webp&quality=lossless&width=280&height=280');
+            background-image: url('https://media.discordapp.net/attachments/1350704655046283365/1350719684349136960/Atomic.png?ex=67dd093b&is=67dbb7bb&hm=2aa4e32329267e7a3d2ea000b7231bf5402bb40139c8ce217928a0dfbf2a46f7&=&format=webp&quality=lossless&width=583&height=583');
             background-size: cover;
             border-radius: 20px;
             margin: 0 auto 20px;
@@ -56,20 +55,19 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Title and Subtitle */
-        .title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #bb86fc, #03dac6, #ff0266);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s infinite alternate;
-        }
+      .title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #bb86fc, #fa26e5, #ff0266);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+} 
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #bb86fc; }
+            100% { text-shadow: 0 0 20px #9a67ea; }
         }
 
         .subtitle {
@@ -87,7 +85,7 @@
         .form-group label {
             font-size: 16px;
             font-weight: 500;
-            color: #bb86fc;
+            color: #bb86fc; /* Purple accent */
             display: block;
             margin-bottom: 8px;
         }
@@ -96,9 +94,9 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #bb86fc;
+            border: 2px solid #bb86fc; /* Purple accent */
             border-radius: 12px;
-            background-color: rgba(38, 38, 38, 0.8);
+            background-color: rgba(26, 26, 26, 0.8);
             color: #ffffff;
             font-size: 14px;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -106,8 +104,8 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #03dac6;
-            box-shadow: 0 0 8px rgba(3, 218, 198, 0.6);
+            border-color: #9a67ea; /* Darker purple on focus */
+            box-shadow: 0 0 8px rgba(187, 134, 252, 0.6);
             outline: none;
         }
 
@@ -118,7 +116,7 @@
 
         /* Submit Button */
         .submit-button {
-            background-color: #bb86fc;
+            background-color: #fa26e5; /* Purple accent */
             color: #1a1a1a;
             border: none;
             border-radius: 12px;
@@ -131,24 +129,22 @@
         }
 
         .submit-button:hover {
-            background-color: #9a67ea;
+            background-color: #9a67ea; /* Darker purple on hover */
             transform: scale(1.05);
         }
 
-        /* Success Message */
         .success-message {
             display: none;
             font-size: 16px;
-            color: #03dac6;
+            color: #03dac6; /* Teal accent */
             margin-top: 20px;
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* Error Message */
         .error-message {
             display: none;
             font-size: 16px;
-            color: #ff0266;
+            color: #ff0266; /* Red accent */
             margin-top: 20px;
             animation: fadeIn 1s ease-in-out;
         }
@@ -159,56 +155,32 @@
         <!-- Logo -->
         <div class="logo"></div>
 
-        <!-- Title and Subtitle -->
         <div class="title">Atomic Dev Application</div>
         <div class="subtitle">Join our team and showcase your skills!</div>
 
-        <!-- Application Form -->
         <form id="applicationForm">
-            <!-- Name -->
+            <!-- Discord Name -->
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label for="discordName">Discord Name</label>
+                <input type="text" id="discordName" name="discordName" placeholder="Enter your Discord username (e.g., username)" required>
             </div>
 
-            <!-- Email -->
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="experience">Month of C# Experience</label>
+                <input type="number" id="experience" name="experience" placeholder="Enter months of experience" required>
             </div>
-
-            <!-- GitHub Profile -->
-            <div class="form-group">
-                <label for="github">GitHub Profile</label>
-                <input type="url" id="github" name="github" placeholder="Enter your GitHub profile URL" required>
-            </div>
-
-            <!-- C# Experience -->
-            <div class="form-group">
-                <label for="experience">Years of C# Experience</label>
-                <input type="number" id="experience" name="experience" placeholder="Enter years of experience" required>
-            </div>
-
-            <!-- Complex Question 1 -->
             <div class="form-group">
                 <label for="question1">Explain the difference between `async` and `await` in C#.</label>
                 <textarea id="question1" name="question1" placeholder="Your answer..." required></textarea>
             </div>
-
-            <!-- Complex Question 2 -->
             <div class="form-group">
                 <label for="question2">What is the purpose of the `yield` keyword in C#? Provide an example.</label>
                 <textarea id="question2" name="question2" placeholder="Your answer..." required></textarea>
             </div>
-
-            <!-- Submit Button -->
             <button type="submit" class="submit-button">Submit Application</button>
         </form>
 
-        <!-- Success Message -->
         <div class="success-message" id="successMessage">Application submitted successfully!</div>
-
-        <!-- Error Message -->
         <div class="error-message" id="errorMessage">Failed to submit application. Please try again.</div>
     </div>
 
@@ -227,9 +199,7 @@
             // Get form data
             const formData = new FormData(form);
             const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                github: formData.get('github'),
+                discordName: formData.get('discordName'),
                 experience: formData.get('experience'),
                 question1: formData.get('question1'),
                 question2: formData.get('question2'),
@@ -243,7 +213,7 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        content: `**New Developer Application**\n\n**Name:** ${data.name}\n**Email:** ${data.email}\n**GitHub:** ${data.github}\n**Experience:** ${data.experience} years\n\n**Question 1:**\n${data.question1}\n\n**Question 2:**\n${data.question2}`,
+                        content: `**New Developer Application**\n\n**Discord Name:** ${data.discordName}\n**Experience:** ${data.experience} years\n\n**Question 1:**\n${data.question1}\n\n**Question 2:**\n${data.question2}`,
                     }),
                 });
 
